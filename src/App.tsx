@@ -70,6 +70,16 @@ const App = () => {
     setData((prevData) => prevData.filter((todo) => todo.id !== id));
   };
 
+  const handleClearAll = () => {
+    setData((prevData) =>
+      prevData.map((todo) =>
+        todo.completed ? todo : { ...todo, completed: true }
+      )
+    );
+    setNumberCompleted(data.length);
+  };
+  
+
   return (
     <React.Fragment>
       <main className="h-screen w-screen flex flex-col items-center justify-center overflow-hidden">
@@ -128,10 +138,13 @@ const App = () => {
                 ))}
             </div>
           </div>
-          <div>
+          <div className='flex flex-row gap-4 items-center justify-between mt-4 mb-2'>
             <h2 className="text-xl font-bold">
               Total Completed: {numberCompleted} / {data.length}
             </h2>
+            <button onClick={handleClearAll} className="text-white bg-red-600 p-2.5 rounded-xl shadow shadow-red-200">
+              Clear All
+            </button>
           </div>
         </section>
       </main>

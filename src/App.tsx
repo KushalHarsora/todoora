@@ -1,6 +1,10 @@
 import axios from 'axios';
 import React from 'react';
-import { Check, Plus, Trash } from 'lucide-react';
+import {
+  Check,
+  Plus,
+  Trash
+} from 'lucide-react';
 
 interface Todo {
   completed: boolean;
@@ -10,7 +14,6 @@ interface Todo {
 }
 
 const App = () => {
-
   const [data, setData] = React.useState<Todo[]>([]);
   const [numberCompleted, setNumberCompleted] = React.useState<number>(0);
 
@@ -58,7 +61,7 @@ const App = () => {
         setNumberCompleted((prevCount) => prevCount + 1);
       }
     }
-  }
+  };
 
   const handleDeleteTodo = (id: number) => {
     const todoToDelete = data.find((todo) => todo.id === id);
@@ -105,13 +108,15 @@ const App = () => {
                         {todo.completed ? 'Completed' : 'Not Completed'}
                       </p>
                     </div>
-                    <div className='flex flex-row gap-2'>
-                    {!todo.completed && <button
-                        className="text-white bg-green-600 p-1.5 rounded-md shadow shadow-green-200"
-                        onClick={() => handleDoneTodo(todo.id)}
-                      >
-                        <Check />
-                      </button>}
+                    <div className="flex flex-row gap-2">
+                      {!todo.completed && (
+                        <button
+                          className="text-white bg-green-600 p-1.5 rounded-md shadow shadow-green-200"
+                          onClick={() => handleDoneTodo(todo.id)}
+                        >
+                          <Check />
+                        </button>
+                      )}
                       <button
                         className="text-white bg-red-600 p-1.5 rounded-md shadow shadow-red-200"
                         onClick={() => handleDeleteTodo(todo.id)}

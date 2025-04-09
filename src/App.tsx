@@ -78,15 +78,15 @@ const App = () => {
 
   return (
     <React.Fragment>
-      <main className="h-screen w-screen flex flex-col items-center justify-center overflow-hidden">
-        <section className=' flex flex-col justify-center items-center gap-1'>
+      <main className="h-screen w-screen flex flex-col items-center justify-center overflow-hidden my-2">
+        <section className='w-screen flex flex-col justify-center items-center gap-1'>
           <div>
             <h1 className="text-3xl font-bold">Todo List</h1>
           </div>
           <div className="flex flex-row gap-4 items-center justify-between mt-4 mb-2">
             <input
               type="text"
-              className="border-[1px] border-gray-400 rounded-xl p-2.5 w-full"
+              className="border-[1px] border-gray-400 rounded-xl p-2.5 w-[500px] max-md:w-[275px]"
               placeholder="Add Todo..."
             />
             <button
@@ -96,7 +96,7 @@ const App = () => {
               <Plus />
             </button>
           </div>
-          <div className="h-fit max-h-[75vh] max-md:max-h-[65vh] w-[75vw] max-w-[700px] max-md:max-w-[500px] overflow-auto">
+          <div className="h-fit max-h-[70vh] max-md:max-h-[65vh] w-[75vw] max-w-[700px] max-md:max-w-[500px] overflow-auto">
             <div className="flex flex-col gap-4 mt-4">
               {data &&
                 data.map((todo) => (

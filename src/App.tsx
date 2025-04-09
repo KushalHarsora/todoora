@@ -79,7 +79,7 @@ const App = () => {
   return (
     <React.Fragment>
       <main className="h-screen w-screen flex flex-col items-center justify-center overflow-hidden">
-        <section>
+        <section className=' flex flex-col justify-center items-center gap-1'>
           <div>
             <h1 className="text-3xl font-bold">Todo List</h1>
           </div>
@@ -96,7 +96,7 @@ const App = () => {
               <Plus />
             </button>
           </div>
-          <div className="h-fit max-h-[75vh] w-[75vw] max-w-[700px] max-md:max-w-[500px] overflow-auto">
+          <div className="h-fit max-h-[75vh] max-md:max-h-[65vh] w-[75vw] max-w-[700px] max-md:max-w-[500px] overflow-auto">
             <div className="flex flex-col gap-4 mt-4">
               {data &&
                 data.map((todo) => (

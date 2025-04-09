@@ -71,14 +71,10 @@ const App = () => {
   };
 
   const handleClearAll = () => {
-    setData((prevData) =>
-      prevData.map((todo) =>
-        todo.completed ? todo : { ...todo, completed: true }
-      )
-    );
-    setNumberCompleted(data.length);
+    setData([]);
+    setNumberCompleted(0);
   };
-  
+
 
   return (
     <React.Fragment>
@@ -100,15 +96,14 @@ const App = () => {
               <Plus />
             </button>
           </div>
-          <div className="h-full max-h-[75vh] w-[75vw] max-w-[700px] max-md:max-w-[500px] overflow-auto">
+          <div className="h-fit max-h-[75vh] w-[75vw] max-w-[700px] max-md:max-w-[500px] overflow-auto">
             <div className="flex flex-col gap-4 mt-4">
               {data &&
                 data.map((todo) => (
                   <div
                     key={todo.id}
-                    className={`flex flex-row justify-between items-center gap-2 p-4 border rounded-lg ${
-                      todo.completed ? 'bg-green-200' : 'bg-red-200'
-                    }`}
+                    className={`flex flex-row justify-between items-center gap-2 p-4 border rounded-lg ${todo.completed ? 'bg-green-200' : 'bg-red-200'
+                      }`}
                   >
                     <div className="flex flex-col gap-2">
                       <div className="flex flex-row gap-2">
@@ -136,6 +131,15 @@ const App = () => {
                     </div>
                   </div>
                 ))}
+
+              {data.length === 0 && (
+                <div className="flex flex-col gap-2 p-4 border rounded-lg bg-gray-200">
+                  <h2 className="text-xl max-md:text-base text-justify">
+                    No Todos Available
+                  </h2>
+                  <p className="text-gray-600">Please add a todo</p>
+                </div>
+              )}
             </div>
           </div>
           <div className='flex flex-row gap-4 items-center justify-between mt-4 mb-2'>
